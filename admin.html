@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel | Emmy Whyte</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+}
+
+body{
+  background:#0b0b0b;
+  color:white;
+}
+
+/* HEADER */
+header{
+  background:#000;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:2px solid #0ff;
+}
+
+header h1{
+  color:#0ff;
+}
+
+.logout{
+  background:red;
+  padding:10px 20px;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+}
+
+/* LAYOUT */
+.container{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+aside{
+  background:#111;
+  padding:20px;
+}
+
+aside a{
+  display:block;
+  color:white;
+  text-decoration:none;
+  padding:12px;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+aside a:hover{
+  background:#0ff;
+  color:black;
+}
+
+/* MAIN */
+main{
+  padding:30px;
+}
+
+/* CARD */
+.card{
+  background:#000;
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:25px;
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+h2{
+  margin-bottom:15px;
+  color:#0ff;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:10px;
+  border-bottom:1px solid #333;
+}
+
+th{
+  color:#0ff;
+}
+
+/* BUTTON */
+.btn{
+  padding:8px 15px;
+  border:none;
+  border-radius:6px;
+  background:#0ff;
+  color:black;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Admin Dashboard</h1>
+  <a class="logout" href="index.html">Logout</a>
+</header>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<aside>
+  <a href="#orders">📦 Orders</a>
+  <a href="#sms">📩 SMS Requests</a>
+  <a href="#platforms">📱 Platforms</a>
+  <a href="#settings">⚙ Settings</a>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main>
+
+<!-- ORDERS -->
+<section id="orders" class="card">
+<h2>Orders</h2>
+
+<table>
+<tr>
+<th>User</th>
+<th>Product</th>
+<th>Price</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Client001</td>
+<td>WhatsApp</td>
+<td>$7</td>
+<td>Pending</td>
+</tr>
+
+<tr>
+<td>Client002</td>
+<td>TikTok</td>
+<td>$10</td>
+<td>Completed</td>
+</tr>
+
+</table>
+</section>
+
+<!-- SMS -->
+<section id="sms" class="card">
+<h2>SMS Verification Requests</h2>
+
+<table>
+<tr>
+<th>Platform</th>
+<th>Country</th>
+<th>Code</th>
+</tr>
+
+<tr>
+<td>WhatsApp</td>
+<td>USA</td>
+<td>482193</td>
+</tr>
+
+<tr>
+<td>TikTok</td>
+<td>Germany</td>
+<td>771902</td>
+</tr>
+</table>
+
+</section>
+
+<!-- PLATFORMS -->
+<section id="platforms" class="card">
+<h2>Platforms</h2>
+<ul>
+<li>✅ WhatsApp</li>
+<li>✅ TikTok</li>
+<li>✅ Facebook</li>
+<li>✅ Telegram</li>
+</ul>
+</section>
+
+<!-- SETTINGS -->
+<section id="settings" class="card">
+<h2>Settings</h2>
+<button class="btn">Enable Maintenance</button>
+<button class="btn">Clear Logs</button>
+</section>
+
+</main>
+</div>
+
+</body>
+</html>
