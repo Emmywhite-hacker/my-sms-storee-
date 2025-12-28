@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Emmy Whyte Digital Store</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="icon" href="logo.png" type="image/png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,118 +13,134 @@
 <canvas id="bg-canvas"></canvas>
 
 <header>
-    <img src="assets/logo.png" alt="Emmy Whyte Logo" id="logo">
-    <div class="banner-name">Emmy Whyte</div>
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-    <nav class="nav-menu" id="navMenu">
-        <a href="#whatsapp">WhatsApp</a>
-        <a href="#tiktok">TikTok</a>
-        <a href="#facebook">Facebook</a>
-        <a href="#telegram">Telegram</a>
-        <a href="#signup">Sign-Up</a>
-        <a href="#about">About Me</a>
-        <a href="#contact">Contact</a>
-        <a href="#" id="dark-mode-toggle">🌙 Dark/Light</a>
-    </nav>
+  <img src="logo.png" alt="Emmy Whyte Logo">
+  <div class="banner-name">Emmy Whyte</div>
+  <div>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+    <button class="buttons" onclick="toggleDarkMode()">🌙/☀️</button>
+  </div>
+  <nav class="nav-menu" id="navMenu">
+    <a href="#whatsapp">WhatsApp</a>
+    <a href="#tiktok">TikTok</a>
+    <a href="#facebook">Facebook</a>
+    <a href="#telegram">Telegram</a>
+    <a href="#signup">Sign-Up</a>
+    <a href="#about">About Me</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <!-- WhatsApp Section -->
-<section id="whatsapp" class="product-section">
-    <h2>📱 WhatsApp Numbers – Europe & Americas</h2>
-    <div class="product">
-        <img src="assets/whatsapp.png" class="icon" alt="WhatsApp Icon">
-        <label>Select Country:</label>
-        <select id="whatsapp-country">
-            <option value="US">United States (+1)</option>
-            <option value="GB">United Kingdom (+44)</option>
-            <option value="CA">Canada (+1)</option>
-            <option value="DE">Germany (+49)</option>
-            <option value="FR">France (+33)</option>
-            <option value="BR">Brazil (+55)</option>
-            <option value="AR">Argentina (+54)</option>
-            <option value="MX">Mexico (+52)</option>
-        </select>
-        <button class="buttons" id="whatsapp-request">Request Code</button>
-        <div class="sms-output" id="whatsapp-output"></div>
-        <p class="price">💰 Random Price: $<span id="whatsapp-price">5</span></p>
-    </div>
+<section id="whatsapp">
+<h2>📱 WhatsApp Numbers – Europe & Americas</h2>
+<div class="product">
+<img src="whatsapp-icon.png" alt="WhatsApp Icon" class="icon">
+<label for="whatsapp-country">Select Country:</label>
+<select id="whatsapp-country">
+  <option value="US">United States</option>
+  <option value="CA">Canada</option>
+  <option value="GB">United Kingdom</option>
+  <option value="DE">Germany</option>
+  <option value="FR">France</option>
+</select>
+<p>💰 Price: <span id="whatsapp-price">$7</span></p>
+<button class="buttons" id="whatsapp-number-btn">Request Number</button>
+<button class="buttons" id="whatsapp-code-btn" disabled>Request Code</button>
+<p id="whatsapp-display"></p>
+<a href="#" id="whatsapp-contact" class="buttons">Contact Me</a>
+</div>
 </section>
 
 <!-- TikTok Section -->
-<section id="tiktok" class="product-section">
-    <h2>🎵 TikTok Accounts – Europe & Americas</h2>
-    <div class="product">
-        <img src="assets/tiktok.png" class="icon" alt="TikTok Icon">
-        <label>Select Country:</label>
-        <select id="tiktok-country">
-            <option value="US">United States</option>
-            <option value="GB">United Kingdom</option>
-            <option value="CA">Canada</option>
-            <option value="DE">Germany</option>
-            <option value="FR">France</option>
-        </select>
-        <label>Select Years:</label>
-        <select id="tiktok-years">
-            <option value="2020-2025">2020-2025</option>
-            <option value="2021-2025">2021-2025</option>
-            <option value="2022-2025">2022-2025</option>
-        </select>
-        <button class="buttons" id="tiktok-request">Request Code</button>
-        <div class="sms-output" id="tiktok-output"></div>
-        <p class="price">💰 Random Price: $<span id="tiktok-price">8</span></p>
-    </div>
+<section id="tiktok">
+<h2>🎵 TikTok Accounts – Europe & Americas</h2>
+<div class="product">
+<img src="tiktok.png" alt="TikTok Icon" class="icon">
+<label for="tiktok-country">Select Country:</label>
+<select id="tiktok-country">
+  <option value="US">United States</option>
+  <option value="CA">Canada</option>
+  <option value="GB">United Kingdom</option>
+  <option value="DE">Germany</option>
+  <option value="FR">France</option>
+</select>
+<label for="tiktok-years">Select Years:</label>
+<select id="tiktok-years">
+  <option value="2020-2025">2020-2025</option>
+  <option value="2021-2025">2021-2025</option>
+</select>
+<p>💰 Price: <span id="tiktok-price">$10</span></p>
+<button class="buttons" id="tiktok-number-btn">Request Number</button>
+<button class="buttons" id="tiktok-code-btn" disabled>Request Code</button>
+<p id="tiktok-display"></p>
+<a href="#" id="tiktok-contact" class="buttons">Contact Me</a>
+</div>
 </section>
 
 <!-- Facebook Section -->
-<section id="facebook" class="product-section">
-    <h2>📘 Facebook Accounts – Europe & Americas</h2>
-    <div class="product">
-        <img src="assets/facebook.png" class="icon" alt="Facebook Icon">
-        <label>Select Country:</label>
-        <select id="facebook-country">
-            <option value="US">United States</option>
-            <option value="GB">United Kingdom</option>
-            <option value="CA">Canada</option>
-            <option value="DE">Germany</option>
-            <option value="FR">France</option>
-        </select>
-        <label>Select Years:</label>
-        <select id="facebook-years">
-            <option value="2020-2025">2020-2025</option>
-            <option value="2021-2025">2021-2025</option>
-            <option value="2022-2025">2022-2025</option>
-        </select>
-        <button class="buttons" id="facebook-request">Request Code</button>
-        <div class="sms-output" id="facebook-output"></div>
-        <p class="price">💰 Random Price: $<span id="facebook-price">7</span></p>
-    </div>
+<section id="facebook">
+<h2>📘 Facebook Accounts – Europe & Americas</h2>
+<div class="product">
+<img src="facebook.png" alt="Facebook Icon" class="icon">
+<label for="facebook-country">Select Country:</label>
+<select id="facebook-country">
+  <option value="US">United States</option>
+  <option value="CA">Canada</option>
+  <option value="GB">United Kingdom</option>
+  <option value="DE">Germany</option>
+  <option value="FR">France</option>
+</select>
+<label for="facebook-years">Select Years:</label>
+<select id="facebook-years">
+  <option value="2020-2025">2020-2025</option>
+  <option value="2021-2025">2021-2025</option>
+</select>
+<p>💰 Price: <span id="facebook-price">$11</span></p>
+<button class="buttons" id="facebook-number-btn">Request Number</button>
+<button class="buttons" id="facebook-code-btn" disabled>Request Code</button>
+<p id="facebook-display"></p>
+<a href="#" id="facebook-contact" class="buttons">Contact Me</a>
+</div>
 </section>
 
 <!-- Telegram Section -->
-<section id="telegram" class="product-section">
-    <h2>📲 Telegram Numbers – Europe & Americas</h2>
-    <div class="product">
-        <img src="assets/telegram.png" class="icon" alt="Telegram Icon">
-        <label>Select Country:</label>
-        <select id="telegram-country">
-            <option value="US">United States (+1)</option>
-            <option value="GB">United Kingdom (+44)</option>
-            <option value="CA">Canada (+1)</option>
-        </select>
-        <button class="buttons" id="telegram-request">Request Code</button>
-        <div class="sms-output" id="telegram-output"></div>
-        <p class="price">💰 Random Price: $<span id="telegram-price">6</span></p>
-    </div>
+<section id="telegram">
+<h2>📲 Telegram Accounts – Europe & Americas</h2>
+<div class="product">
+<img src="telegram.png" alt="Telegram Icon" class="icon">
+<label for="telegram-country">Select Country:</label>
+<select id="telegram-country">
+  <option value="US">United States</option>
+  <option value="CA">Canada</option>
+  <option value="GB">United Kingdom</option>
+  <option value="DE">Germany</option>
+  <option value="FR">France</option>
+</select>
+<p>💰 Price: <span id="telegram-price">$8</span></p>
+<button class="buttons" id="telegram-number-btn">Request Number</button>
+<button class="buttons" id="telegram-code-btn" disabled>Request Code</button>
+<p id="telegram-display"></p>
+<a href="#" id="telegram-contact" class="buttons">Contact Me</a>
+</div>
 </section>
 
-<!-- About, Signup, Contact -->
-<section id="signup"><h2>📝 Sign-Up</h2><p>Coming soon: secure signup.</p></section>
-<section id="about"><h2>💖 About Me</h2><p>Hello! I’m Emmy Whyte, selling WhatsApp, TikTok, Facebook, Telegram safely.</p></section>
-<section id="contact"><h2>📩 Contact</h2><p>WhatsApp: <a href="https://wa.me/2347078312023" class="buttons">Chat Now</a></p>
-<p>Email: <a href="mailto:omodaratanemmanuel5@gmail.com" class="buttons">Send Email</a></p></section>
+<!-- About -->
+<section id="about">
+<h2>💖 About Me</h2>
+<p>Hello! I’m Emmy Whyte, your trusted digital store provider. I love helping people get premium TikTok, Facebook, WhatsApp, and Telegram accounts safely and easily.</p>
+</section>
 
-<footer>© 2025 Emmy Whyte Digital Store</footer>
+<!-- Contact -->
+<section id="contact">
+<h2>📩 Contact</h2>
+<p>WhatsApp: <a href="https://wa.me/2347078312023" class="buttons">Chat Now</a></p>
+<p>Email: <a href="mailto:omodaratanemmanuel5@gmail.com" class="buttons">Send Email</a></p>
+</section>
+
+<footer>
+<p>© 2025 Emmy Whyte Digital Store</p>
+</footer>
 
 <script src="main.js"></script>
 </body>
-   </html>
+</html>
