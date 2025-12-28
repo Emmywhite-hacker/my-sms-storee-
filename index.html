@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emmy Whyte Digital Store</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =======================
+   GLOBAL STYLES
+======================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Montserrat',sans-serif;
+}
+body{
+  background:#0a0a0a;
+  color:white;
+  overflow-x:hidden;
+  transition:.4s;
+}
+.light body{
+  background:#f4f4f4;
+  color:#111;
+}
+
+/* =======================
+   PARTICLE BACKGROUND
+======================= */
+#bg{
+  position:fixed;
+  inset:0;
+  z-index:-1;
+}
+
+/* =======================
+   HEADER
+======================= */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 25px;
+  background:rgba(0,0,0,.8);
+  border-bottom:2px solid #0ff;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.logo img{
+  width:45px;
+  border-radius:50%;
+}
+.logo span{
+  font-size:1.5rem;
+  font-weight:700;
+  color:#0ff;
+}
+.menu-btn{
+  font-size:28px;
+  cursor:pointer;
+}
+
+/* =======================
+   MENU
+======================= */
+nav{
+  position:absolute;
+  top:70px;
+  right:20px;
+  background:#000;
+  border-radius:15px;
+  display:none;
+  flex-direction:column;
+  width:230px;
+  overflow:hidden;
+  box-shadow:0 0 25px rgba(0,255,255,.4);
+}
+nav a{
+  padding:15px;
+  text-decoration:none;
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+nav a:hover{
+  background:#0ff;
+  color:black;
+}
+
+/* =======================
+   SECTIONS
+======================= */
+section{
+  max-width:1100px;
+  margin:60px auto;
+  padding:30px;
+  background:rgba(0,0,0,.65);
+  border-radius:25px;
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+section.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+h2{
+  color:#0ff;
+  margin-bottom:20px;
+}
+
+/* =======================
+   CARDS
+======================= */
+.card{
+  background:#000;
+  border-radius:20px;
+  padding:25px;
+  margin:20px 0;
+  border:2px solid rgba(255,255,255,.1);
+  transition:.3s;
+}
+.card:hover{
+  transform:scale(1.02);
+  box-shadow:0 0 20px #0ff;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+.btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 25px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#0ff,#34eb86,#ffd700);
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
+  transition:.3s;
+}
+.btn:hover{ transform:scale(1.08); }
+
+/* =======================
+   FORMS
+======================= */
+select, input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+}
+
+/* =======================
+   TOGGLE MODE
+======================= */
+.toggle{
+  cursor:pointer;
+  font-size:20px;
+}
+
+/* =======================
+   FOOTER
+======================= */
+footer{
+  text-align:center;
+  padding:30px;
+  background:#111;
+  margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="bg"></canvas>
+
+<header>
+  <div class="logo">
+    <img src="logo.png">
+    <span>Emmy Whyte</span>
+  </div>
+
+  <div>
+    <span class="toggle" onclick="toggleTheme()">🌙</span>
+    <span class="menu-btn" onclick="toggleMenu()">☰</span>
+  </div>
+
+  <nav id="menu">
+    <a href="#services">Services</a>
+    <a href="#sms">SMS Verify</a>
+    <a href="#order">Order</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- SERVICES -->
+<section id="services">
+<h2>🔥 Our Services</h2>
+
+<div class="card">
+<h3>✅ WhatsApp Accounts</h3>
+<p>Verified EU & US numbers.</p>
+</div>
+
+<div class="card">
+<h3>✅ TikTok Accounts</h3>
+<p>Old & new accounts available.</p>
+</div>
+
+<div class="card">
+<h3>✅ Facebook Accounts</h3>
+<p>Stable & verified profiles.</p>
+</div>
+
+</section>
+
+<!-- SMS VERIFICATION -->
+<section id="sms">
+<h2>📩 SMS Verification (Simulation)</h2>
+
+<div class="card">
+<label>Select Platform</label>
+<select id="platform">
+  <option>WhatsApp</option>
+  <option>TikTok</option>
+  <option>Facebook</option>
+  <option>Telegram</option>
+</select>
+
+<label>Select Country</label>
+<select id="country">
+  <option value="+1">USA</option>
+  <option value="+44">UK</option>
+  <option value="+49">Germany</option>
+  <option value="+33">France</option>
+  <option value="+39">Italy</option>
+  <option value="+34">Spain</option>
+  <option value="+1">Canada</option>
+</select>
+
+<button class="btn" onclick="generateSMS()">Request Code</button>
+
+<p id="smsBox" style="margin-top:20px;font-weight:bold;"></p>
+</div>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+<h2>🛒 Place Order</h2>
+
+<div class="card">
+<select>
+  <option>WhatsApp - $7</option>
+  <option>TikTok - $10</option>
+  <option>Facebook - $9</option>
+</select>
+
+<a class="btn" href="https://wa.me/2347078312023" target="_blank">
+Order via WhatsApp
+</a>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>💙 About Me</h2>
+<p>I provide trusted digital services with fast delivery and support.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>📞 Contact</h2>
+<a class="btn" href="https://wa.me/2347078312023">Chat on WhatsApp</a>
+</section>
+
+<footer>
+<p>© 2025 Emmy Whyte Digital Store</p>
+</footer>
+
+<script>
+/* MENU */
+function toggleMenu(){
+  let m=document.getElementById("menu");
+  m.style.display = m.style.display=="flex"?"none":"flex";
+}
+
+/* THEME */
+function toggleTheme(){
+  document.body.classList.toggle("light");
+}
+
+/* SCROLL ANIMATION */
+document.addEventListener("scroll",()=>{
+  document.querySelectorAll("section").forEach(sec=>{
+    if(sec.getBoundingClientRect().top < window.innerHeight-100){
+      sec.classList.add("show");
+    }
+  });
+});
+
+/* SMS SIMULATION */
+function generateSMS(){
+  const platform=document.getElementById("platform").value;
+  const country=document.getElementById("country").value;
+  const code=Math.floor(100000+Math.random()*900000);
+
+  document.getElementById("smsBox").innerHTML=
+  `📩 <b>${platform}</b> code sent to <b>${country}</b><br>
+   <span style="font-size:22px;color:#0ff;">${code}</span>`;
+}
+
+/* PARTICLES */
+const c=document.getElementById("bg");
+const ctx=c.getContext("2d");
+let w,h;
+function resize(){
+  w=c.width=window.innerWidth;
+  h=c.height=window.innerHeight;
+}
+window.onresize=resize; resize();
+
+let particles=[];
+for(let i=0;i<120;i++){
+  particles.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5),vy:(Math.random()-0.5)});
+}
+function animate(){
+  ctx.fillStyle="rgba(0,0,0,0.1)";
+  ctx.fillRect(0,0,w,h);
+  ctx.fillStyle="#0ff";
+  particles.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy;
+    if(p.x<0||p.x>w)p.vx*=-1;
+    if(p.y<0||p.y>h)p.vy*=-1;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,2,0,Math.PI*2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
